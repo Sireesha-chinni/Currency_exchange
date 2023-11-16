@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+    <style>
+        body{
+            background-image: url(background.jpeg);
+            height: auto;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            color: white;
+        }
+        .container{
+            background-color:rgb(4, 18, 138);
+            border:5px solid skyblue;
+            width: 350px;
+            height: 250px;
+            margin-left: 450px;
+            color: white;
+            margin-top: 100px;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>CURRENCY Exchange</h1>
+    <div class="container">
+        <br><br>
+        <label>Enter the amount:</label>
+        <input type="number" placeholder="Numbers Only" id="in1">
+        <br><br>
+        <br>
+        <label>Select The Country:</label>
+        <select id="in2">
+            <option value="USD$">USD$</option>
+            <option value="EUR">EUR</option>
+            <option value="CNY">CNY</option>
+            <option value="GBP">GBP</option>
+        </select>
+        <br><br>
+        <button type="button">Convert</button>
+        <h2 id="output"></h2>
+        <script>
+            let button= document.querySelector("button")
+            button.addEventListener('click',display)
+
+            function display(){
+                let input1= document.querySelector("#in1").value
+                let in2= document.querySelector("#in2")
+                let output = document.querySelector("#output")
+                let output1= in2.options[in2.selectedIndex].value
+
+                if(output1=="USD$")
+                    output.innerHTML= input1*0.012.toFixed(2) +"USD$"
+                else if(output1=="EUR")
+                    output.innerHTML= input1*0.011 +"EUR"
+                else if(output1=="CNY")
+                    output.innerHTML= input1*0.088 +"CNY"
+                else if(output1=="GBP")
+                    output.innerHTML= input1*0.0099 +"GBP"
+                else
+                    output.innerHTML="NO DATA FOUND"
+                
+            }
+        </script>
+    </div>
+</body>
+</html>
